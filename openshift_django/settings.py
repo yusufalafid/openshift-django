@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'mydjango',
         'USER': 'myroot',
         'PASSWORD': 'myroot123',
-        'HOST': '172.30.0.30',  # Your openshift host
+        'HOST': '10.129.0.40',  # Your openshift host
         'PORT': '3306',
     }
 }
