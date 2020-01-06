@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Template
 metadata:
   creationTimestamp: null
-  name: mysql-55-centos7
+  name: mysql-80-rhel7
 objects:
 - apiVersion: v1
   kind: Service
   metadata:
     labels:
-      app: mysql-55-centos7
-    name: mysql-55-centos7
+      app: mysql-80-rhel7
+    name: mysql-80-rhel7
     uid: c21278ce-8bf8-11e8-a514-080027f414e3
   spec:
     clusterIP: 172.30.0.30
@@ -19,8 +19,8 @@ objects:
         protocol: TCP
         targetPort: 3306
     selector:
-      app: mysql-55-centos7
-      deploymentconfig: mysql-55-centos7
+      app: mysql-80-rhel7
+      deploymentconfig: mysql-80-rhel7
     sessionAffinity: None
     type: ClusterIP
   status:
@@ -30,20 +30,20 @@ objects:
 - apiVersion: v1
   kind: DeploymentConfig
   metadata:
-    name: mysql-55-centos7
+    name: mysql-80-rhel7
   spec:
     replicas: 1
     selector:
-      app: mysql-55-centos7
-      deploymentconfig: mysql-55-centos7
+      app: mysql-80-rhel7
+      deploymentconfig: mysql-80-rhel7
     strategy:
       type: Rolling
     template:
       metadata:
         creationTimestamp: null
         labels:
-          app: mysql-55-centos7
-          deploymentconfig: mysql-55-centos7
+          app: mysql-80-rhel7
+          deploymentconfig: mysql-80-rhel7
       spec:
         containers:
         - env:
@@ -53,9 +53,9 @@ objects:
             value: myroot123
           - name: MYSQL_DATABASE
             value: mydjango
-          image: openshift/mysql-55-centos7@sha256:7cd33ccc63b8005810aedee0444472cc84c3e3c38fe9cd147edb964e712a1068
+          image: registry.access.redhat.com/rhscl/mysql-80-rhel7
           imagePullPolicy: Always
-          name: mysql-55-centos7
+          name: mysql-80-rhel7
           ports:
           - containerPort: 3306
             protocol: TCP
