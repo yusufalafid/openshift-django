@@ -17,7 +17,7 @@ objects:
     source:
       git:
         ref: master
-        uri: https://github.com/ruddra/openshift-django.git
+        uri: https://github.com/yusufalafid/openshift-django.git
       type: Git
     strategy:
       dockerStrategy:
